@@ -1,0 +1,16 @@
+import bpy
+import os
+
+objects = bpy.context.selected_objects
+list=[]
+for obj in objects:
+    list.append(obj.name)           
+print(list)
+
+
+file = open(os.path.splitext(bpy.data.filepath)[0] + ".txt", 'w')
+
+for item in list:
+  file.write("%s\n" % item)
+
+file.close()
